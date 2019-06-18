@@ -9,23 +9,25 @@
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input formControlName="lastName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.lasttName.errors}">
+        <input formControlName="lastName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.lastName.errors}">
         <div class="invalid-feedback" *ngIf="submitted && formControls.lastName.errors">This field is required</div>
       </div>
-      <div class="form-group" [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
+      <div class="form-group">
         <label>Mobile</label>
-        <input formControlName="mobile" class="form-control">
-        <label *ngIf="formControls.mobile.errors.required">This field is required</label>
-        <label *ngIf="formControls.mobile.errors.minlength">at least 8 numbers</label>
+        <input formControlName="mobile" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
+          <label *ngIf="formControls.mobile.errors.required">This field is required</label>
+          <label *ngIf="formControls.mobile.errors.minlength">at least 8 numbers</label>
+        </div>
       </div>
-      <div class="form-group" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
+      <div class="form-group">
         <label>Email</label>
-        <input formControlName="email" class="form-control">
+        <input formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
         <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">invalid email address</div>
       </div>
-      <div class="form-group" [ngClass]="{'is-invalid':submitted && formControls.address.errors}">
+      <div class="form-group">
         <label>Address</label>
-        <input formControlName="address" class="form-control">
+        <input formControlName="address" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.address.errors}">
         <div class="invalid-feedback" *ngIf="submitted && formControls.address.errors">This field is required</div>
       </div>
       <div class="form-group">

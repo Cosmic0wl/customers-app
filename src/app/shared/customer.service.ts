@@ -8,7 +8,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 export class CustomerService {
 
 //constructing the customer service class with properties for the form
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(public firebase: AngularFireDatabase) { }
   customerList: AngularFireList<any>;
   form = new FormGroup({
   $key: new FormControl(null),
@@ -35,5 +35,28 @@ export class CustomerService {
   		address: customer.address
   	});
   }
+
+  // populate takes the value from this customer obj into the form group
+  populateForm(customer){
+    this.form.setValue(customer);
+  }
+
+  // update data for customer
+
+  updateCustomer(customer){
+      this.customerList.update(customer.$key,{
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        mobile: customer.mobile,
+        email: customer.email,
+        address: customer.address
+      });
+    }
+
+   // delete customer
+
+  deleteCustomer($key: string){
+      this.customerList.remove($key);
+    }
 
 }
